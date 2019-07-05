@@ -1,3 +1,4 @@
+% ====== Created by Andrés Arciniegas 2018
 % clc; clear;
 % R = 'R';
 % P = 'P';
@@ -80,7 +81,7 @@ function [Jp, Jo] = getJacobian(dhTable,config,firstParam)
         if i > 1
             zi_1 = TMatRel{i-1}(1:3,3);
         end
-        if config(i) == 'P'
+        if config(i) == 'P' || config(i) == 1 
             Jo(1:3,i) = zeros(3,1);
             if i == 1
                Jp(1:3,i) = z0;
@@ -88,7 +89,7 @@ function [Jp, Jo] = getJacobian(dhTable,config,firstParam)
                Jp(1:3,i) = zi_1;
             end
         end
-        if config(i) == 'R'
+        if config(i) == 'R' || config(i) == 0
             if i == 1
                Jp(1:3,i) = cross(z0,TMatAbs(1:3,4) - p0);
                Jo(1:3,i) = z0;
@@ -99,6 +100,7 @@ function [Jp, Jo] = getJacobian(dhTable,config,firstParam)
         end           
     end
     %Simplify result
+    % put in horizontal vector form (12/06/2019)
     Jp = simplify(Jp);
     Jo = simplify(Jo);
 end
