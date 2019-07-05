@@ -2,22 +2,20 @@
 
 function [Rx Ry Rz] = getEulerRotationMatrices()
 
-alpha = sym('alpha');
-beta = sym('beta');
-gamma = sym('gamma');
+a = sym('a', [1,3])
 
 %Rotation matrix around the Z axis
-Rz = [  cos(gamma) -sin(gamma)  0; 
-        sin(gamma)  cos(gamma)  0;
+Rz = [  cos(a(3)) -sin(a(3))  0; 
+        sin(a(3))  cos(a(3))  0;
             0           0       1];
 
 %Rotation matrix around the Y axis
-Ry = [  cos(alpha) 0 sin(alpha)  ; 
+Ry = [  cos(a(2)) 0 sin(a(2))  ; 
             0      1        0     ;   
-        -sin(alpha) 0 cos(alpha)   ;];
+        -sin(a(2)) 0 cos(a(2))   ;];
 
 %Rotation matrix around the X axis
 Rx = [  1   0           0       ;
-        0  cos(beta) -sin(beta); 
-        0  sin(beta)  cos(beta);];
+        0  cos(a(1)) -sin(a(1)); 
+        0  sin(a(1))  cos(a(1));];
 end

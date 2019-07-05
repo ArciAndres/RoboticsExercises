@@ -1,0 +1,65 @@
+function [Rx Ry Rz] = getEulerRotMatProduct(angles_axis,angles_name)
+
+%GETEULERROTMATPRODUCT - computes the product of EUler rotational matruces
+% Syntax:  [output1,output2] = getEulerRotMatProduct(input1,input2,input3)
+%
+% Inputs:
+%    angles_axis - Literal of the axis of rotation (X Y or Z)
+%    angles_name - In case the name of the angles have to be specified
+%
+% Outputs:
+%    output1 - Description
+%    output2 - Description
+%
+% Example: 
+%    Line 1 of example
+%    Line 2 of example
+%    Line 3 of example
+%
+% Other m-files required: none
+% Subfunctions: none
+% MAT-files required: none
+%
+% See also: OTHER_FUNCTION_NAME1,  OTHER_FUNCTION_NAME2
+
+% Author: FirstName FamilyName
+% Work address
+% email: 
+% Website: http://www.
+% May 2004; Last revision: 12-May-2004
+%------------- BEGIN CODE --------------
+
+n = length(angles_axis)
+
+switch nargin
+    case 1 % Angles not defined
+        angles_name = sym('theta',[n,1]);
+    case 2
+        assert(n == length(angles_name),"The number of elements must be the same in both arrays.")
+end
+
+% Get the
+[Rx Ry Rz] = getEulerRotationMatrices() 
+alpha = sym('alpha');
+beta = sym('beta');
+gamma = sym('gamma');
+
+
+R_set = {}
+
+
+
+for i = 1:length(angles_axis)
+    
+    switch angles_axis(i)
+        case 'X'
+            
+        case 'Y'
+        case 'Z'
+            
+    end
+    
+    R_set{i} = 
+end
+
+
