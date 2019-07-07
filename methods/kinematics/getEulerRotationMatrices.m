@@ -2,7 +2,7 @@
 
 function [Rx Ry Rz] = getEulerRotationMatrices()
 
-a = sym('a', [1,3])
+a = sym('a', [1,3]);
 
 %Rotation matrix around the Z axis
 Rz = [  cos(a(3)) -sin(a(3))  0; 

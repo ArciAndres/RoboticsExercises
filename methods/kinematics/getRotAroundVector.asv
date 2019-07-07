@@ -1,0 +1,27 @@
+function R = getRotAroundVector(vector,angle)
+
+%GETROTAROUNDVECTOR - Computes the rotar
+% Syntax:  R = GETROTAROUNDVECTOR(angles_axis,angles_name)
+%
+% Inputs:
+%    vector - unit vector
+%    angle - angle eta of rotation
+%
+% Outputs:
+%    R - Generated rotation matrix 
+%
+% Example: 
+%    syms alpha beta gamma
+%    [R_total, R_set] = getEulerRotMatProduct('YXY',[alpha, beta, gamma])
+%
+% See also: getEulerRotationMatrices
+% Author: Andres Arciniegas - 
+% email: arciandres@gmail.com -
+% Last revision: 05-Jul-2019
+
+n = length(angles_axis);
+
+% Skew-symmetric matrix from vector
+S_vector = [0 -vector(3) vector(2) ; vector(3) 0 -vector(1) ; -vector(2) vector(1) 0 ];
+
+R = r*r.' + (eye(3) - r*r.')*cos(angle) + S_angle*sin(angle)
