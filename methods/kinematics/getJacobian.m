@@ -4,22 +4,22 @@
 % P = 'P';
 % 
 % qnum = 7; %Number of joints
-
+%
 %Sym values for depicting undefined variables in result. They can be
 %numbers
 % q = sym('q', [1 qnum]);
 % d = sym('d', [1 qnum]);
 % a = sym('a', [1 qnum]); 
-
+%
 % config = [R,R,P,R]
 %SCARA Robot. Slide 09_DirectKinematics
 % dh = [a(1) 0  d(1) q(1) ; 
 %       a(2) 0  0 q(2);
 %       0 0  q(3) 0;
 %       0 pi d(4) q(4)];
-
+%
 %T = getJacobianF(dh,config) %Works fine.
-
+%
 % dhTable = dh
 function [Jp, Jo] = getJacobian(dhTable,config,firstParam)
     %First param tells the variable that starts the sequence
